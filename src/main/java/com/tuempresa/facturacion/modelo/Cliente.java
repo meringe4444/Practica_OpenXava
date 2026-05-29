@@ -1,12 +1,10 @@
 package com.tuempresa.facturacion.modelo;
 
-import lombok.Getter;
-import lombok.Setter;
-import org.openxava.annotations.Required;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.openxava.annotations.*;
+
+import lombok.*;
 
 @Entity
 @Getter @Setter
@@ -20,5 +18,7 @@ public class Cliente {
     @Required
     String nombre;
 
+    @Embedded
+    Direccion direccion;
 
 }

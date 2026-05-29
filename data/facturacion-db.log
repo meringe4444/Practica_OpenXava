@@ -1,8 +1,5 @@
-/*C5*/SET SCHEMA PUBLIC
+/*C4*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C6*/SET SCHEMA PUBLIC
-create table Producto (numero integer not null, descripcion varchar(50), primary key (numero))
-INSERT INTO PRODUCTO VALUES(1,'co-codamol')
-COMMIT
-INSERT INTO PRODUCTO VALUES(2,'Grapefruit Juice')
-COMMIT
+/*C5*/SET SCHEMA PUBLIC
+alter table Producto add column categoria_oid varchar(32)
+alter table Producto add constraint FKc81rcy0vfdn5ewnap5scabhd3 foreign key (categoria_oid) references Categoria

@@ -1,12 +1,12 @@
 package com.tuempresa.facturacion.modelo;
 
-import lombok.Getter;
-import lombok.Setter;
-import org.openxava.annotations.Required;
+import java.math.BigDecimal;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+import org.openxava.annotations.*;
+
+import lombok.*;
 
 @Entity
 @Getter @Setter
@@ -19,5 +19,21 @@ public class Producto {
     @Column(length = 50)
     @Required
     String descripcion;
+
+    @ManyToOne(
+        fetch = FetchType.LAZY,
+        optional = true)
+    @DescriptionsList
+    Categoria categoria;
+
+    @Money
+    BigDecimal precio;
+
+    @Files
+    @Column(length = 32)
+    String fotos;
+
+    @TextArea
+    String observaciones;
 
 }
